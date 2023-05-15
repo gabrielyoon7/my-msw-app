@@ -7,18 +7,18 @@ import { worker } from "./mocks/browser.ts";
 
 async function main() {
 
-  if (process.env.NODE_ENV === 'development') {
-    if (window.location.pathname === '/my-msw-app') {
-      window.location.pathname = '/my-msw-app/'
-      return
-    }
-
-    await worker.start({
-      serviceWorker: {
-        url: '/my-msw-app/mockServiceWorker.js',
-      },
-    })
+  // if (process.env.NODE_ENV === 'development') {
+  if (window.location.pathname === '/my-msw-app') {
+    window.location.pathname = '/my-msw-app/'
+    return
   }
+
+  await worker.start({
+    serviceWorker: {
+      url: '/my-msw-app/mockServiceWorker.js',
+    },
+  })
+  // }
 
   ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
