@@ -8,10 +8,10 @@ import { worker } from "./mocks/browser.ts";
 async function main() {
 
   // if (process.env.NODE_ENV === 'development') {
-  if (window.location.pathname === '/my-msw-app') {
-    window.location.pathname = '/my-msw-app/'
-    return
-  }
+  // if (window.location.pathname === '/my-msw-app') {
+  //   window.location.pathname = '/my-msw-app/'
+  //   return
+  // }
 
   await worker.start({
     serviceWorker: {
