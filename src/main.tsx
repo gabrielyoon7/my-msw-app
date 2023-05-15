@@ -5,14 +5,26 @@ import App from './App.tsx'
 import './index.css'
 import { worker } from "./mocks/browser.ts";
 
-// if (process.env.NODE_ENV === 'development') {
-//   worker.start();
-// }
+async function main() {
 
-worker.start();
+  if (process.env.NODE_ENV === 'development') {
+    if (window.location.pathname === '/login') {
+      window.location.pathname = '/login/'
+      return
+    }
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    await worker.start({
+      serviceWorker: {
+        url: '/login/mockServiceWorker.js',
+      },
+    })
+  }
+
+  ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+  )
+}
+
+main();
