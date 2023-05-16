@@ -16,12 +16,17 @@ function App() {
 
   return (
     <>
-      <button onClick={() => fetchLogin()}>
-        login
-      </button>
-      <button onClick={() => fetchUser()}>
-        user
-      </button>
+      <div>
+        <img src="https://placehold.it/200x200" />
+      </div>
+      <div>
+        <button onClick={() => fetchLogin()}>
+          login
+        </button>
+        <button onClick={() => fetchUser()}>
+          user
+        </button>
+      </div>
     </>
   )
 }
