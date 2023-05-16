@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <div>
-        <img src="https://placehold.it/200x200" />
+        <img src="https://placekitten.com/200/200" />
       </div>
       <div>
         <button onClick={() => fetchLogin()}>
